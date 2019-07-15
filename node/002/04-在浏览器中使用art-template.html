@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+        在浏览器中要引用 template-web 
+
+        模板引擎不关心内容
+    -->
+    <script src="node_modules/art-template/lib/template-web.js"></script>
+    <script type="text/template" id="tpl">
+        大家好，我叫： {{ name }} 我今年：{{ age }}岁了 我家住在：{{ address }} 我的爱好是： {{each hobbies}}{{$value}}{{ /each }}
+    </script>
+    <script>
+        var user = template('tpl', {
+            name: 'Jack',
+            age: 15,
+            address: '黄土高坡',
+            hobbies: ['吸烟', '喝酒', '烫头']
+        })
+        console.log(user);
+    </script>
+</body>
+
+</html>
